@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tabs Activity - Lorem Ipsum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Brand Colors: 
+           #1f2a52 (Midnight Blue)
+           #00bec7 (Teal)
+           #d2f0f0 (Light Aqua)
+           #abb5bf (Slate Grey)
+        */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2a52;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-card {
+            max-width: 850px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(31, 42, 82, 0.1);
+            overflow: hidden;
+            border: 1px solid #d2f0f0;
+        }
+
+        .header-bar {
+            background-color: #1f2a52;
+            padding: 1.5rem 2.5rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Solid Grey Bar for Tabs */
+        .tabs-nav-cell {
+            background-color: #abb5bf; /* Solid Slate Grey brand color */
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem; 
+        }
+
+        .tab-button {
+            padding: 0.6rem 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background-color: #ffffff; 
+            color: #1f2a52;
+            border: none;
+            border-radius: 9999px; /* Distinct Ovals */
+            outline: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: #d2f0f0;
+            transform: translateY(-1px);
+        }
+
+        .tab-button.active {
+            background-color: #00bec7; /* Brand Teal */
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 190, 199, 0.3);
+        }
+
+        .tabs-content-area {
+            padding: 3rem 2.5rem;
+        }
+
+        /* Content Area with Side Line */
+        .tab-content {
+            display: none;
+            padding: 0.5rem 0 0.5rem 2rem;
+            animation: fadeIn 0.3s ease-out;
+            position: relative;
+            border-left: 8px solid #00bec7; 
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content-heading {
+            color: #1f2a52;
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .content-subheading {
+            color: #00bec7;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .definition-box {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .definition-label {
+            font-weight: 700;
+            color: #1f2a52;
+        }
+
+        .examples-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .examples-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .examples-list li::before {
+            content: "•";
+            color: #00bec7;
+            font-weight: bold;
+            font-size: 1.8rem;
+            position: absolute;
+            left: 0;
+            top: -0.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="activity-card">
+        <!-- Header -->
+        <div class="header-bar">
+            <h1 class="text-2xl font-bold uppercase tracking-wide">Lorem Ipsum Dolor</h1>
+        </div>
+
+        <!-- Solid Grey Bar with Centered Oval Buttons -->
+        <div class="tabs-nav-cell">
+            <button class="tab-button active" onclick="openTab(event, 'tab1')">Tab One</button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">Tab Two</button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">Tab Three</button>
+        </div>
+
+        <div class="tabs-content-area">
+            <!-- Tab 1 Content -->
+            <div id="tab1" class="tab-content active">
+                <span class="content-subheading">Consectetur Adipiscing</span>
+                <span class="content-heading">Lorem Ipsum Sit Amet</span>
+                
+                <div class="definition-box">
+                    <p><span class="definition-label">Lorem:</span> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+
+                <span class="definition-label">Vestibulum:</span>
+                <ul class="examples-list">
+                    <li>Excepteur sint occaecat cupidatat non proident.</li>
+                    <li>Sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                    <li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</li>
+                    <li>Accusantium doloremque laudantium, totam rem aperiam.</li>
+                </ul>
+            </div>
+
+            <!-- Tab 2 Content -->
+            <div id="tab2" class="tab-content">
+                <span class="content-subheading">Eiusmod Tempor</span>
+                <span class="content-heading">Incididunt Ut Labore</span>
+                
+                <div class="definition-box">
+                    <p><span class="definition-label">Ipsum:</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem.</p>
+                </div>
+
+                <span class="definition-label">Curabitur:</span>
+                <ul class="examples-list">
+                    <li>Quis autem vel eum iure reprehenderit qui in ea voluptate.</li>
+                    <li>Velit esse quam nihil molestiae consequatur, vel illum qui.</li>
+                    <li>At vero eos et accusamus et iusto odio dignissimos ducimus.</li>
+                    <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+                </ul>
+            </div>
+
+            <!-- Tab 3 Content -->
+            <div id="tab3" class="tab-content">
+                <span class="content-subheading">Quis Nostrud</span>
+                <span class="content-heading">Exercitation ullamco</span>
+                
+                <div class="definition-box">
+                    <p><span class="definition-label">Dolor:</span> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+                </div>
+
+                <span class="definition-label">Phasellus:</span>
+                <ul class="examples-list">
+                    <li>Omnis voluptas assumenda est, omnis dolor repellendus.</li>
+                    <li>Temporibus autem quibusdam et aut officiis debitis aut.</li>
+                    <li>Itaque earum rerum hic tenetur a sapiente delectus ut.</li>
+                    <li>Reiciendis voluptatibus maiores alias consequatur aut perferendis.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
